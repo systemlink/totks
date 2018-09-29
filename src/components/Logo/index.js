@@ -1,5 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby'
+import styled from "styled-components";
 
 const query = graphql`
   query {
@@ -12,12 +13,14 @@ const query = graphql`
 `;
 
 const Logo = data => (
-  <img
-    src={data.contentfulAsset.file.url} alt="ロゴ"
-    style={{
-      height: '48px'
-    }}
+  <StyledImg
+    src={data.contentfulAsset.file.url}
+    alt="ロゴ"
   />
 );
 
-export default() => <StaticQuery query={query} render={Logo} />;
+const StyledImg = styled.img`
+  height: 48px;
+`;
+
+export default () => <StaticQuery query={query} render={Logo} />;
