@@ -1,24 +1,57 @@
 import React from 'react'
 import styled from "styled-components";
+import { StaticQuery, graphql } from 'gatsby'
 
-const Card = ({ title, children }) => (
-  <StyledCard>
-    <Title>{title}</Title>
+const query = graphql`
+  query {
+    contentfulAsset(title: { eq: "default-blog-cover" }) {
+      file {
+        url
+      }
+    }
+  }
+`;
 
-    <Content>
-      {children}
-    </Content>
-  </StyledCard>
+const Card = ({ title, data, children }) => (
+  <Container>
+    <Picture src={data.contentfulAsset.file.url} alt="ブログ画像" />
+
+    <StyledCard>
+      <Title>{title}</Title>
+
+      <Content>
+        {children}
+      </Content>
+    </StyledCard>
+  </Container>
 );
 
-const StyledCard = styled.li`
-  display: inline-block;
+const Container = styled.li`
   margin: 10px;
-  padding: 30px 20px 30px;
+  display: inline-block;
   list-style-type: none;
   background-color: #fff;
-  width: 270px;
-  height: 300px;
+  width: 250px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const Picture = styled.img`
+  margin: 0;
+  transition: opacity 0.2s;
+  transition-timing-function: ease;
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+
+const StyledCard = styled.div`
+  padding: 30px;
+  height: 240px;
 `;
 
 const Title = styled.h3`
@@ -34,4 +67,11 @@ const Content = styled.div`
   line-height: 1.6;
 `;
 
-export default Card;
+export default props => (
+  <StaticQuery
+    query={query}
+    render={data => (
+      <Card data={data} {...props} />
+    )}
+  />
+);
