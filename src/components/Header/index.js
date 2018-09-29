@@ -1,5 +1,6 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby';
+import styled from "styled-components";
 
 import Logo from '../Logo';
 
@@ -14,18 +15,19 @@ const query = graphql`
 `;
 
 const Header = data => (
-  <header
-    style={{
-      padding: '70px 0 0 70px',
-      backgroundImage: `url("${data.contentfulAsset.file.url}")`,
-      backgroundPosition: 'center center',
-      backgroundRepeat: 'no-repeat',
-      width: '100%',
-      height: '600px',
-      backgroundSize: 'cover'
-    }}
-  >
+  <Container url={data.contentfulAsset.file.url}>
     <Logo />
-  </header>
+  </Container>
 );
-export default() => <StaticQuery query={query} render={Header} />;
+
+const Container = styled.header`
+  padding: 70px 0 0 70px;
+  background-image: url("${props => props.url}");
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+`;
+
+export default () => <StaticQuery query={query} render={Header} />;
