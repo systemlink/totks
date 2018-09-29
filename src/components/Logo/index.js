@@ -2,13 +2,13 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby'
 
 const query = graphql`
-query {
-  contentfulAsset(title: { eq: "logo" }) {
-    file {
-      url
-         }
+  query {
+    contentfulAsset(title: { eq: "logo" }) {
+      file {
+        url
+      }
     }
-}
+  }
 `;
 
 const Logo = data => (
