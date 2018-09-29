@@ -1,22 +1,23 @@
-import React from 'react'
-import Layout from '../components/layout'
+import React from 'react';
+import Layout from '../components/Layout';
+import Card from '../components/Card';
 
 const IndexPage = () => (
   <Layout>
     <article>
       <h2>クラフト</h2>
-      <section>
-        <h3>マイコンの研究成果を追加しました</h3>
+
+      <Card title="マイコンの研究成果を追加しました">
         <p>マイコンの研究成果を追加しました。(体験的マイコン学習) 今回はIchigoJamを試してみました。Ichig […]</p>
-      </section>
-      <section>
-        <h3>マイコンの研究成果を追加しました</h3>
+      </Card>
+
+      <Card title="マイコンの研究成果を追加しました">
         <p>マイコンの研究成果を追加しました。(体験的マイコン学習) 今回はmilkcocoaというBaasとWindow […]</p>
-      </section>
-      <section>
-        <h3>マイコンの研究成果を追加しました</h3>
+      </Card>
+
+      <Card title="マイコンの研究成果を追加しました">
         <p>マイコンの研究成果を追加しました。(体験的マイコン学習) 今回はGR-CITRUSというマイコンを、Chrom […]</p>
-      </section>
+      </Card>
     </article>
   </Layout>
 )
