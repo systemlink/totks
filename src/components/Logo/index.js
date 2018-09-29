@@ -12,7 +12,12 @@ const query = graphql`
 `;
 
 const Logo = data => (
-  <img src={data.contentfulAsset.file.url} alt="ロゴ" />
+  <img
+    src={data.contentfulAsset.file.url} alt="ロゴ"
+    style={{
+      height: '48px'
+    }}
+  />
 );
 
 export default() => <StaticQuery query={query} render={Logo} />;
