@@ -23,7 +23,7 @@ const Header = data => (
 const Container = styled.header`
   position: fixed;
   top: 0;
-  padding: 50px;
+  padding: 10px;
   background-image: url("${props => props.url}");
   background-position: top center;
   background-repeat: no-repeat;
