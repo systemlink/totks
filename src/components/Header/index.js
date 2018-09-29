@@ -21,12 +21,14 @@ const Header = data => (
 );
 
 const Container = styled.header`
-  padding: 70px 0 0 70px;
+  position: fixed;
+  top: 0;
+  padding: 50px;
   background-image: url("${props => props.url}");
-  background-position: center center;
+  background-position: top center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 600px;
+  height: 400px;
   background-size: cover;
 `;
 

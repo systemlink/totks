@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import styled from "styled-components";
 
 import Header from '../Header'
 import './layout.css'
@@ -24,16 +25,24 @@ const Layout = ({ data, children }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     >
-      <html lang="en" />
+      <html lang="ja" />
     </Helmet>
 
     <Header siteTitle={data.site.siteMetadata.title} />
 
-    <main>
+    <Container>
       {children}
-    </main>
+    </Container>
   </>
 );
+
+const Container = styled.main`
+  position: relative;
+  background-color: #ffecd2;
+  padding: 50px;
+  margin-top: 300px;
+  box-shadow: 0 0 200px gray;
+`;
 
 export default props => (
   <StaticQuery
