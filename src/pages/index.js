@@ -1,14 +1,23 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
 import Layout from '../components/layout'
 
 const IndexPage = () => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <article>
+      <h2>クラフト</h2>
+      <section>
+        <h3>マイコンの研究成果を追加しました</h3>
+        <p>マイコンの研究成果を追加しました。(体験的マイコン学習) 今回はIchigoJamを試してみました。Ichig […]</p>
+      </section>
+      <section>
+        <h3>マイコンの研究成果を追加しました</h3>
+        <p>マイコンの研究成果を追加しました。(体験的マイコン学習) 今回はmilkcocoaというBaasとWindow […]</p>
+      </section>
+      <section>
+        <h3>マイコンの研究成果を追加しました</h3>
+        <p>マイコンの研究成果を追加しました。(体験的マイコン学習) 今回はGR-CITRUSというマイコンを、Chrom […]</p>
+      </section>
+    </article>
   </Layout>
 )
 
