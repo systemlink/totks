@@ -38,10 +38,9 @@ const Layout = ({ data, children }) => (
 
 const Container = styled.main`
   position: relative;
-  background-color: #ff892f;
+  background-color: rgba(230,126,34,0.8);
   padding: 50px;
   margin-top: 200px;
-  box-shadow: 0 0 20px #ff892f;
 `;
 
 export default props => (
