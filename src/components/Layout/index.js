@@ -4,6 +4,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from "styled-components";
 
 import Header from '../Header'
+import GlobalNavigation from '../GlobalNavigation';
+
 import './layout.css'
 
 const query = graphql`
@@ -33,14 +35,16 @@ const Layout = ({ data, children }) => (
     <Container>
       {children}
     </Container>
+
+    <GlobalNavigation />
   </>
 );
 
 const Container = styled.main`
   position: relative;
-  background-color: rgba(230,126,34,0.8);
+  background-color: rgba(230,126,34,1);
   padding: 50px;
-  margin-top: 200px;
+  margin-top: 400px;
 `;
 
 export default props => (

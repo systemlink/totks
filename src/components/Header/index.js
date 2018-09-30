@@ -2,8 +2,6 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from "styled-components";
 
-import Logo from '../Logo';
-
 const query = graphql`
   query {
     contentfulAsset(title: { eq: "cover" }) {
@@ -15,15 +13,14 @@ const query = graphql`
 `;
 
 const Header = data => (
-  <Container url={data.contentfulAsset.file.url}>
-    <Logo />
-  </Container>
+  <Container url={data.contentfulAsset.file.url} />
 );
 
 const Container = styled.header`
   position: fixed;
   top: 0;
   padding: 10px;
+  margin-top: 48px;
   background-image: url("${props => props.url}");
   background-position: top center;
   background-repeat: no-repeat;
