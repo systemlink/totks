@@ -1,11 +1,34 @@
 import React from 'react';
 import styled from "styled-components";
+import { StaticQuery, graphql } from 'gatsby'
 
 import Card from '../Card';
 
-const Craft = () => (
+const query = graphql`
+  query {
+    contentfulTitleIcon {
+      before {
+        file {
+          url
+        }
+      }
+      after {
+        file {
+          url
+        }
+      }
+    }
+  }
+`;
+
+const Craft = ({ data }) => (
   <section>
-    <Title>Craft</Title>
+    <Title
+      beforeUrl={data.contentfulTitleIcon.before.file.url}
+      afterUrl={data.contentfulTitleIcon.after.file.url}
+    >
+      Craft
+    </Title>
 
     <CardList>
       <Card title="マイコンの研究成果を追加しました">
@@ -47,6 +70,26 @@ const Title = styled.h2`
   text-align: center;
   color: #fff;
   font-family: 'Lato', sans-serif;
+
+  &:before {
+    margin-right: 10px;
+    content: '';
+    display: inline-block;
+    background-image: url("${props => props.beforeUrl}");
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+  }
+
+  &:after {
+    margin-left: 10px;
+    content: '';
+    display: inline-block;
+    background-image: url("${props => props.afterUrl}");
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 const CardList = styled.ul`
@@ -55,4 +98,11 @@ const CardList = styled.ul`
   font-family: 'Lato', sans-serif;
 `;
 
-export default Craft;
+export default props => (
+  <StaticQuery
+    query={query}
+    render={data => (
+      <Craft data={data} {...props} />
+    )}
+  />
+);
