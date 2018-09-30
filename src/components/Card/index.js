@@ -37,6 +37,7 @@ const Container = styled.li`
 
   &:hover {
     cursor: pointer;
+    box-shadow: 0 0 20px #fff;
   }
 `;
 

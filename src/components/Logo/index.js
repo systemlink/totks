@@ -20,7 +20,7 @@ const Logo = data => (
 );
 
 const StyledImg = styled.img`
-  height: 48px;
+  height: 36px;
 `;
 
 export default () => <StaticQuery query={query} render={Logo} />;
