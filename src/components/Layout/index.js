@@ -41,7 +41,7 @@ const Container = styled.main`
   background-color: #ff892f;
   padding: 50px;
   margin-top: 200px;
-  box-shadow: inset 0 0 20px white;
+  box-shadow: 0 0 20px #ff892f;
 `;
 
 export default props => (
