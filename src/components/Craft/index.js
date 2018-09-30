@@ -5,7 +5,7 @@ import Card from '../Card';
 
 const Craft = () => (
   <section>
-    <h2>Craft</h2>
+    <Title>Craft</Title>
 
     <CardList>
       <Card title="マイコンの研究成果を追加しました">
@@ -43,9 +43,16 @@ const Craft = () => (
   </section>
 );
 
+const Title = styled.h2`
+  text-align: center;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+`;
+
 const CardList = styled.ul`
   margin: 0 auto;
   max-width: 960px;
+  font-family: 'Lato', sans-serif;
 `;
 
 export default Craft;
