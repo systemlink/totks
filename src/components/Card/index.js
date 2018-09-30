@@ -31,7 +31,9 @@ const Container = styled.li`
   display: inline-block;
   list-style-type: none;
   background-color: #fff;
-  width: 250px;
+  width: calc(33% - 20px);
+  min-width: 250px;
+  overflow: hidden;
 
   &:hover {
     cursor: pointer;
@@ -40,11 +42,13 @@ const Container = styled.li`
 
 const Picture = styled.img`
   margin: 0;
-  transition: opacity 0.2s;
+  transition: all 0.2s;
   transition-timing-function: ease;
   opacity: 1;
+  width: 100%;
 
   &:hover {
+    transform: scale(1.2);
     opacity: 0.7;
   }
 `;
@@ -55,7 +59,7 @@ const StyledCard = styled.div`
 `;
 
 const Title = styled.h3`
-  margin: 0;
+  margin: 0 0 10px;
   font-size: 18px;
   color: #222;
   line-height: 1.6;
