@@ -20,7 +20,6 @@ const Container = styled.header`
   position: fixed;
   top: 0;
   padding: 10px;
-  margin-top: 48px;
   background-image: url("${props => props.url}");
   background-position: top center;
   background-repeat: no-repeat;

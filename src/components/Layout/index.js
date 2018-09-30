@@ -18,27 +18,58 @@ const query = graphql`
   }
 `;
 
-const Layout = ({ data, children }) => (
-  <>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'モダンな技術を使った自作のおもちゃを紹介します' },
-        { name: 'keywords', content: 'おもちゃ,工作,IoT' },
-      ]}
-    >
-      <html lang="ja" />
-    </Helmet>
+class Layout extends React.Component {
+  constructor() {
+    super();
 
-    <Header siteTitle={data.site.siteMetadata.title} />
+    this.state = {
+      hiddenHeader: true,
+    };
+  }
 
-    <Container>
-      {children}
-    </Container>
+  componentDidMount() {
+    requestAnimationFrame(this.scrollingContaier);
+  }
 
-    <GlobalNavigation />
-  </>
-);
+  scrollingContaier = () => {
+    this.setState({
+      hiddenHeader: window.pageYOffset < (400  - 48)
+    });
+
+    requestAnimationFrame(this.scrollingContaier);
+  }
+
+  render() {
+    const {
+      data, 
+      children,
+    } = this.props;
+
+    return (
+      <>
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: 'モダンな技術を使った自作のおもちゃを紹介します' },
+            { name: 'keywords', content: 'おもちゃ,工作,IoT' },
+          ]}
+        >
+          <html lang="ja" />
+        </Helmet>
+    
+        <Header />
+    
+        <Container>
+          {children}
+        </Container>
+    
+        <GlobalNavigation
+          hiddenHeader={this.state.hiddenHeader}
+        />
+      </>
+    );
+  }
+}
 
 const Container = styled.main`
   position: relative;
